@@ -13,6 +13,7 @@ libraryDependencies ++= {
   val scalaMockV       = "3.2.2"
   val scalazScalaTestV = "0.2.3"
   Seq(
+    "org.scalaz"        %% "scalaz-core"                          % scalazV,
     "com.typesafe.akka" %% "akka-stream-experimental"             % akkaStreamV,
     "com.typesafe.akka" %% "akka-http-core-experimental"          % akkaStreamV,
     "com.typesafe.akka" %% "akka-http-spray-json-experimental"    % akkaStreamV,
