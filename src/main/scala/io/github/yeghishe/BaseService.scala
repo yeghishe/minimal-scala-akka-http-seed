@@ -1,12 +1,13 @@
 package io.github.yeghishe
 
-import akka.event.LoggingAdapter
+import akka.actor.ActorSystem
+import akka.event.{ Logging, LoggingAdapter }
 import akka.http.scaladsl.marshallers.sprayjson.SprayJsonSupport
-import akka.stream.ActorFlowMaterializer
-import scala.concurrent.ExecutionContext
+import akka.stream.ActorMaterializer
 
 trait BaseService extends Protocol with SprayJsonSupport with Config {
-  protected implicit def executor: ExecutionContext
-  protected implicit def materializer: ActorFlowMaterializer
-  protected def log: LoggingAdapter
+  protected def serviceName: String
+  protected def system: ActorSystem
+  protected def materializer: ActorMaterializer
+  protected def log: LoggingAdapter = Logging(system, serviceName)
 }
