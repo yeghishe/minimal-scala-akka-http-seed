@@ -4,7 +4,7 @@ import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
 
-object Main extends App with Config with Service {
+object Main extends App with Config with StatusService {
   override protected implicit def system: ActorSystem = ActorSystem()
   override protected implicit val materializer: ActorMaterializer = ActorMaterializer()
 
