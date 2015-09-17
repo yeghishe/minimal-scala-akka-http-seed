@@ -43,3 +43,34 @@ initialCommands := """|import scalaz._
                       |import akka.util._
                       |import scala.concurrent._
                       |import scala.concurrent.duration._""".stripMargin
+
+publishMavenStyle := true
+publishArtifact in Test := false
+pomIncludeRepository := { _ => false }
+publishTo := {
+  val nexus = "https://oss.sonatype.org/"
+  if (isSnapshot.value)
+    Some("snapshots" at nexus + "content/repositories/snapshots")
+  else
+    Some("releases"  at nexus + "service/local/staging/deploy/maven2")
+}
+pomExtra := (
+  <url>http://yeghishe.github.io/</url>
+  <licenses>
+    <license>
+      <name>Apache-2.0</name>
+      <url>http://opensource.org/licenses/Apache-2.0</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+    <url>https://github.com/yeghishe/</url>
+    <connection>scm:git:git@github.com:yeghishe/.git</connection>
+  </scm>
+  <developers>
+    <developer>
+      <id>ypiruzyan</id>
+      <name>Yeghishe Piruzyan</name>
+      <url>http://yeghishe.github.io/</url>
+    </developer>
+  </developers>)
