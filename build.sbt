@@ -1,12 +1,12 @@
 name          := "minimal-scala-akka-http-seed"
 organization  := "com.github.yeghishe"
 version       := "0.0.1"
-scalaVersion  := "2.11.7"
+scalaVersion  := "2.11.8"
 scalacOptions := Seq("-unchecked", "-feature", "-deprecation", "-encoding", "utf8")
 
 libraryDependencies ++= {
   val scalazV          = "7.3.0-M2"
-  val akkaV      = "2.4.4"
+  val akkaV            = "2.4.4"
   val scalaTestV       = "3.0.0-M15"
   val scalaMockV       = "3.2.2"
   val scalazScalaTestV = "0.3.0"
