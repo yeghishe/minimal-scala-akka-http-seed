@@ -9,7 +9,10 @@ trait StatusService extends BaseService {
   protected val routes = pathPrefix("status") {
     get {
       log.info("/status executed")
-      complete(Status(Duration(ManagementFactory.getRuntimeMXBean.getUptime, MILLISECONDS).toString()))
+      val status = Status(Duration(
+        ManagementFactory.getRuntimeMXBean.getUptime, MILLISECONDS
+      ).toString())
+      complete(status)
     }
   }
 }
