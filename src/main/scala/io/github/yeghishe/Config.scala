@@ -1,10 +1,12 @@
 package io.github.yeghishe
 
 import com.typesafe.config.ConfigFactory
+import net.ceedubs.ficus.Ficus
+import net.ceedubs.ficus.readers.ArbitraryTypeReader
 
 trait Config {
-  import net.ceedubs.ficus.Ficus._
-  import net.ceedubs.ficus.readers.ArbitraryTypeReader._
+  import Ficus._
+  import ArbitraryTypeReader._
 
   protected case class HttpConfig(interface: String, port: Int)
 
