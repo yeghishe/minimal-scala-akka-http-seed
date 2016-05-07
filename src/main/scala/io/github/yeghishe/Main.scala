@@ -1,12 +1,24 @@
 package io.github.yeghishe
 
 import akka.actor.ActorSystem
+import akka.event.Logging
 import akka.http.scaladsl.Http
 import akka.stream.ActorMaterializer
+import akka.http.scaladsl.server.Directives
 
-object Main extends App with Config with StatusService {
-  override protected implicit val system: ActorSystem = ActorSystem()
-  override protected implicit val materializer: ActorMaterializer = ActorMaterializer()
+object System {
+  implicit val system = ActorSystem()
+  implicit val materializer = ActorMaterializer()
 
-  Http().bindAndHandle(routes, httpInterface, httpPort)
+  trait LoggerExecutor extends BaseComponent {
+    protected implicit val executor = system.dispatcher
+    protected implicit val log = Logging(system, "app")
+  }
+}
+
+object Main extends App with Config with System.LoggerExecutor with StatusService {
+  import System._
+  import Directives._
+
+  Http().bindAndHandle(statusRoutes, httpConfig.interface, httpConfig.port)
 }

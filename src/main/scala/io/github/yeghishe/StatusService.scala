@@ -5,14 +5,10 @@ import akka.http.scaladsl.server.Directives._
 import scala.concurrent.duration._
 
 trait StatusService extends BaseService {
-  protected val serviceName = "my service"
-  protected val routes = pathPrefix("status") {
+  protected val statusRoutes = pathPrefix("status") {
     get {
       log.info("/status executed")
-      val status = Status(Duration(
-        ManagementFactory.getRuntimeMXBean.getUptime, MILLISECONDS
-      ).toString())
-      complete(status)
+      complete(Status(Duration(ManagementFactory.getRuntimeMXBean.getUptime, MILLISECONDS).toString()))
     }
   }
 }

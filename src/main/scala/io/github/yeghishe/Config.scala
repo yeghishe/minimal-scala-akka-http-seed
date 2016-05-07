@@ -3,9 +3,11 @@ package io.github.yeghishe
 import com.typesafe.config.ConfigFactory
 
 trait Config {
-  private val config = ConfigFactory.load()
-  private val httpConfig = config.getConfig("http")
+  import net.ceedubs.ficus.Ficus._
+  import net.ceedubs.ficus.readers.ArbitraryTypeReader._
 
-  val httpInterface = httpConfig.getString("interface")
-  val httpPort = httpConfig.getInt("port")
+  protected case class HttpConfig(interface: String, port: Int)
+
+  private val config = ConfigFactory.load()
+  protected val httpConfig = config.as[HttpConfig]("http")
 }
