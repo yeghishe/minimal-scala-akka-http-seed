@@ -10,7 +10,7 @@ libraryDependencies ++= {
   val scalazV          = "7.3.0-M2"
   val akkaV            = "2.4.7"
   val ficusV           = "1.2.4"
-  val scalaTestV       = "3.0.0-M15"
+  val scalaTestV       = "3.0.0"
   val scalaMockV       = "3.2.2"
   val scalazScalaTestV = "0.3.0"
   Seq(
