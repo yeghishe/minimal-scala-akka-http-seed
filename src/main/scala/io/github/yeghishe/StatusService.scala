@@ -1,14 +1,20 @@
 package io.github.yeghishe
 
 import java.lang.management.ManagementFactory
-import akka.http.scaladsl.server.Directives._
+import akka.http.scaladsl.server.Directives
+import akka.http.scaladsl.server.Route
 import scala.concurrent.duration._
 
 trait StatusService extends BaseService {
-  protected val statusRoutes = pathPrefix("status") {
+  import Directives._
+  import io.circe.generic.auto._
+
+  protected case class Status(uptime: String)
+
+  override protected def routes: Route =
     get {
       log.info("/status executed")
       complete(Status(Duration(ManagementFactory.getRuntimeMXBean.getUptime, MILLISECONDS).toString()))
     }
-  }
 }
+

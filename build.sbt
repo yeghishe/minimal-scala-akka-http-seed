@@ -1,29 +1,37 @@
 name          := "minimal-scala-akka-http-seed"
 organization  := "io.github.yeghishe"
 version       := "0.0.1"
-scalaVersion  := "2.11.8"
+scalaVersion  := "2.12.1"
 scalacOptions := Seq("-unchecked", "-feature", "-deprecation", "-encoding", "utf8")
 
 resolvers += Resolver.jcenterRepo
 
 libraryDependencies ++= {
-  val scalazV          = "7.3.0-M5"
-  val akkaV            = "2.4.11"
-  val ficusV           = "1.2.7"
-  val scalaTestV       = "3.0.0"
-  val scalaMockV       = "3.3.0"
-  val scalazScalaTestV = "1.0.0"
+  val catsV          = "0.9.0"
+  val akkaHttpV      = "10.0.3"
+  val circeV         = "0.7.0"
+  val ficusV         = "1.4.0"
+  val scalaMockV     = "3.4.2"
+  val catsScalatestV = "2.2.0"
+
   Seq(
-    "org.scalaz"        %% "scalaz-core"                       % scalazV,
-    "com.typesafe.akka" %% "akka-http-core"                    % akkaV,
-    "com.typesafe.akka" %% "akka-http-experimental"            % akkaV,
-    "com.typesafe.akka" %% "akka-http-spray-json-experimental" % akkaV,
-    "com.iheart"        %% "ficus"                             % ficusV,
-    "org.scalatest"     %% "scalatest"                         % scalaTestV       % "it,test",
-    "org.scalamock"     %% "scalamock-scalatest-support"       % scalaMockV       % "it,test",
-    "org.scalaz"        %% "scalaz-scalacheck-binding"         % scalazV          % "it,test",
-    "org.typelevel"     %% "scalaz-scalatest"                  % scalazScalaTestV % "it,test",
-    "com.typesafe.akka" %% "akka-http-testkit"                 % akkaV            % "it,test"
+    "org.typelevel"     %% "cats-core"                   % catsV,
+    "com.iheart"        %% "ficus"                       % ficusV,
+
+    "com.typesafe.akka" %% "akka-http" % akkaHttpV,
+    "de.heikoseeberger" %% "akka-http-circe" % "1.12.0",
+    "io.circe" %% "circe-core" % circeV,
+    "io.circe" %% "circe-generic" % circeV,
+    "io.circe" %% "circe-parser" % circeV,
+
+    //"com.typesafe.akka" %% "akka-http-core"                    % akkaV,
+    //"com.typesafe.akka" %% "akka-http-experimental"            % akkaV,
+    //"com.typesafe.akka" %% "akka-http-spray-json-experimental" % akkaV,
+
+
+    "org.scalamock"     %% "scalamock-scalatest-support" % scalaMockV     % "it,test",
+    "com.ironcorelabs"  %% "cats-scalatest"              % catsScalatestV % "it,test",
+    "com.typesafe.akka" %% "akka-http-testkit"           % akkaHttpV      % "it,test"
   )
 }
 
