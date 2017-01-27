@@ -1,10 +1,9 @@
 package io.github
 
-import akka.actor.ActorSystem
-import akka.event.Logging
-import de.heikoseeberger.akkahttpcirce.CirceSupport
-import akka.http.scaladsl.server.Route
 import akka.event.LoggingAdapter
+import akka.http.scaladsl.server.Route
+import de.heikoseeberger.akkahttpcirce.CirceSupport
+
 import scala.concurrent.ExecutionContext
 
 package object yeghishe {

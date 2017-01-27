@@ -3,12 +3,8 @@ package io.github.yeghishe
 import akka.actor.ActorSystem
 import akka.event.Logging
 import akka.http.scaladsl.Http
+import akka.http.scaladsl.server.{ Directives, Route }
 import akka.stream.ActorMaterializer
-import akka.http.scaladsl.server.Directives
-
-import akka.event.LoggingAdapter
-
-import scala.concurrent.ExecutionContext
 
 object Main extends App with Config with Services {
   implicit val system = ActorSystem()
@@ -28,7 +24,7 @@ trait Services extends StatusService {
     "status" -> super[StatusService].routes
   )
 
-  protected override val routes = pathPrefix(apiVersion) {
+  protected override val routes: Route = pathPrefix(apiVersion) {
     allRoutes.map {
       case (k, v) => path(k)(v)
     } reduce (_ ~ _)

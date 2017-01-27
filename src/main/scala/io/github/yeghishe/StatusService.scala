@@ -1,8 +1,7 @@
 package io.github.yeghishe
 
 import java.lang.management.ManagementFactory
-import akka.http.scaladsl.server.Directives
-import akka.http.scaladsl.server.Route
+import akka.http.scaladsl.server.{ Directives, Route }
 import scala.concurrent.duration._
 
 trait StatusService extends BaseService {
