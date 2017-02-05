@@ -16,4 +16,3 @@ package object yeghishe {
     protected def routes: Route
   }
 }
-

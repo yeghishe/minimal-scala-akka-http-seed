@@ -1,7 +1,7 @@
-name          := "minimal-scala-akka-http-seed"
-organization  := "io.github.yeghishe"
-version       := "0.0.1"
-scalaVersion  := "2.12.1"
+name := "minimal-scala-akka-http-seed"
+organization := "io.github.yeghishe"
+version := "0.0.1"
+scalaVersion := "2.12.1"
 scalacOptions := Seq("-unchecked", "-feature", "-deprecation", "-encoding", "utf8")
 
 resolvers += Resolver.jcenterRepo
@@ -15,20 +15,13 @@ libraryDependencies ++= {
   val catsScalatestV = "2.2.0"
 
   Seq(
-    "org.typelevel"     %% "cats-core"                   % catsV,
-    "com.iheart"        %% "ficus"                       % ficusV,
-
-    "com.typesafe.akka" %% "akka-http" % akkaHttpV,
+    "org.typelevel"     %% "cats-core"       % catsV,
+    "com.iheart"        %% "ficus"           % ficusV,
+    "com.typesafe.akka" %% "akka-http"       % akkaHttpV,
     "de.heikoseeberger" %% "akka-http-circe" % "1.12.0",
-    "io.circe" %% "circe-core" % circeV,
-    "io.circe" %% "circe-generic" % circeV,
-    "io.circe" %% "circe-parser" % circeV,
-
-    //"com.typesafe.akka" %% "akka-http-core"                    % akkaV,
-    //"com.typesafe.akka" %% "akka-http-experimental"            % akkaV,
-    //"com.typesafe.akka" %% "akka-http-spray-json-experimental" % akkaV,
-
-
+    "io.circe"          %% "circe-core"      % circeV,
+    "io.circe"          %% "circe-generic"   % circeV,
+    "io.circe"          %% "circe-parser"    % circeV,
     "org.scalamock"     %% "scalamock-scalatest-support" % scalaMockV     % "it,test",
     "com.ironcorelabs"  %% "cats-scalatest"              % catsScalatestV % "it,test",
     "com.typesafe.akka" %% "akka-http-testkit"           % akkaHttpV      % "it,test"
@@ -47,4 +40,3 @@ initialCommands := """|import scalaz._
                       |import akka.util._
                       |import scala.concurrent._
                       |import scala.concurrent.duration._""".stripMargin
-

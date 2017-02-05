@@ -12,7 +12,7 @@ trait Config {
 
   protected case class HttpConfig(interface: String, port: Int)
 
-  private val config = ConfigFactory.load()
+  private val config                   = ConfigFactory.load()
   protected val httpConfig: HttpConfig = config.as[HttpConfig]("http")
 }
 

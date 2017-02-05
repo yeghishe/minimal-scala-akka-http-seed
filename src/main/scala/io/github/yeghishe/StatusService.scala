@@ -1,7 +1,7 @@
 package io.github.yeghishe
 
 import java.lang.management.ManagementFactory
-import akka.http.scaladsl.server.{ Directives, Route }
+import akka.http.scaladsl.server.{Directives, Route}
 import scala.concurrent.duration._
 
 trait StatusService extends BaseService {
@@ -16,4 +16,3 @@ trait StatusService extends BaseService {
       complete(Status(Duration(ManagementFactory.getRuntimeMXBean.getUptime, MILLISECONDS).toString()))
     }
 }
-
