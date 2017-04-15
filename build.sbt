@@ -8,17 +8,17 @@ resolvers += Resolver.jcenterRepo
 
 libraryDependencies ++= {
   val catsV          = "0.9.0"
-  val akkaHttpV      = "10.0.3"
+  val akkaHttpV      = "10.0.5"
   val circeV         = "0.7.0"
   val ficusV         = "1.4.0"
-  val scalaMockV     = "3.4.2"
+  val scalaMockV     = "3.5.0"
   val catsScalatestV = "2.2.0"
 
   Seq(
     "org.typelevel"     %% "cats-core"       % catsV,
     "com.iheart"        %% "ficus"           % ficusV,
     "com.typesafe.akka" %% "akka-http"       % akkaHttpV,
-    "de.heikoseeberger" %% "akka-http-circe" % "1.12.0",
+    "de.heikoseeberger" %% "akka-http-circe" % "1.15.0",
     "io.circe"          %% "circe-core"      % circeV,
     "io.circe"          %% "circe-generic"   % circeV,
     "io.circe"          %% "circe-parser"    % circeV,
